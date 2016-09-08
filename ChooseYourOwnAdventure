@@ -1,0 +1,12 @@
+/* Choose Your Own Adventure Game v0.1 */
+
+alert("Welcome to the World of Hooligans and Dinguses!");
+var playername = prompt("First off, what is your name?","Evvy Yeckermen");
+var mission = confirm("Are you ready to rumble, " + playername + "?");
+
+if(mission == "true"){
+  alert("Buahaha! You've made a terrible mistake.");
+}
+else {
+  alert("Oh. Alright. :(")
+}
