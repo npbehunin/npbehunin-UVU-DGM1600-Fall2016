@@ -1,0 +1,14 @@
+/*
+for(i=1; i <= 10; i++){
+  console.log(i);
+}
+*/
+
+var i=25;
+while(i>0){
+  console.log(i + " people didn't do the assignment!");
+  i--;
+  if(i===0){
+    break;
+  }
+}
