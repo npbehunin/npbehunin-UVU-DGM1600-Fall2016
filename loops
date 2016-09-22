@@ -12,3 +12,5 @@ while(i>0){
     break;
   }
 }
+
+console.log("Hello!);
