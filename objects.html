@@ -1,0 +1,30 @@
+// Javascript Object Example
+
+var superhero = {
+  heroName: "Batman",
+  secretIdentity: "Bruce Wayne",
+  age: 30,
+  archvillan: "The Joker",
+  batmobile:function(){
+  return this.heroName + " drives the batmobile and no one else!";
+  }
+}
+
+// Calling a property
+console.log(superhero.secretIdentity);
+
+// Calling a method
+console.log(superhero.batmobile());
+
+superhero.heroName = "Superman";
+
+// Calling a property
+console.log(superhero.heroName);
+
+// Adding a property
+superhero.faveFood = "Tacos";
+console.log(superhero.faveFood);
+
+// Deleting an object property
+delete superhero.archVillan;
+console.log(superhero.archVillan);
