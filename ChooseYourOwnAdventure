@@ -1,12 +1,359 @@
-/* Choose Your Own Adventure Game v0.1 */
+<html>
+    <head>
+        <title>Adventure Game</title>
+    </head>
+    <body>
+        <script>
 
-alert("Welcome to the World of Hooligans and Dinguses!");
-var playername = prompt("First off, what is your name?","Evvy Yeckermen");
-var mission = confirm("Are you ready to rumble, " + playername + "?");
+            function game(){
+                //Beginning
+                var path1 = prompt("One day, you decide to sail out into the ocean and go fishing. Along the way, you happen spot another ship off in the distance. Do you sail towards them or sail away? (towards, away)");
 
-if(mission == "true"){
-  alert("Buahaha! You've made a terrible mistake.");
+                if(path1 == "towards"){
+                    towards();
+                }
+                else if(path1 == "away"){
+                    away();
+                }
+                else if(path1 == null){
+                        endgame();
+                    }
+                else{
+                    alert("That won't work! Try again.");
+                    game();
+                }
+                //Sail towards (Pirate encounter)
+                 function towards(){
+                    alert("You choose to sail towards the ship. To your surprise, it's a pirate ship! Before you can sail away, the pirate ship catches up to you and stops you immediately.");
+                    alert("A tall pirate with an absurdly humongous black beard steps off his ship onto yours. A bunch of his crewmates seize you and keep you from doing anything.");
+                    alert("'Hardy har har!' The pirate gets a closer look at you. 'Hello laddy. I apologize for intruding, but my crew and I have been searching for something.'");
+                    alert("'I need a cape.' He said with an ugly grin. 'I need a colored cape to wear around my wonderful neck, and I was wondering if you would have such a cape stored on your ship.'");
+                    alert("'If you help me, we might give you something nice in return.' You're not sure if you should co-operate, but you might not have much of a choice.");
+                    cape();
+                 }
+
+                //Cape
+                function cape(){
+                    var capeChoice = prompt("Should you give the pirate one of your colored capes? (yes, no)");
+                    if(capeChoice == "yes"){
+                        capeColorChoice();
+                    }
+                    else if(capeChoice == "no"){
+                        alert("The pirate gets upset with you. 'Fine then! Let's see if you'll have more fun co-operating behind bars!' The pirate crew swiftly takes you onto their ship.");
+                        jail();
+                        
+                    }
+                    else if(capeChoice == null){
+                        endgame();
+                    }
+                    else{
+                        alert("That option won't work here. Try again!");
+                        cape();
+                    }      
+                }
+
+                //Cape color choice
+                function capeColorChoice(){
+                    var capeColor = prompt("You choose to give the pirate one of your colored capes. Lucky for you, you have a few stored in the closet. Which color cape do yo pick? (Red, Yellow, or Blue)");
+                    if(capeColor == "Red"){
+                        alert("'You bring out the Red cape to the pirate. Immediately upon seeing it, he shouts 'Aha! So YOU were the one who stole my Red cape! I had my suspicions!' His crew immediately takes you onto his ship. Uh oh!");
+                        jail();
+                    }
+                    else if(capeColor == "Yellow"){
+                        alert("'You bring out the Yellow cape to the pirate. Immediately upon seeing it, he shouts 'Aha! So YOU were the one who stole my Yellow cape! I had my suspicions!' His crew immediately takes you onto his ship. Uh oh!");
+                        jail();
+                    }
+                    else if(capeColor == "Blue"){
+                        alert("'You bring out the Blue cape to the pirate. Immediately upon seeing it, he is thrown back in amazement. 'Why, I have never seen such a beautiful cape in all my life!' He shouts.");
+                        capeOriginChoice();
+                    }
+                    else if(capeColorChoice == null){
+                        endgame();
+                    }
+                    else{
+                        alert("That's not one of the cape colors! Try again.");
+                        capeColor();
+                    }
+                }
+
+                //Cape origin
+                function capeOriginChoice(){
+                    var capeOrigin = prompt("'Where did you acquire such a beautiful cape?' He asks. What should you tell him? (I found it, I stole it, I made it)");
+                    if(capeOrigin == "I found it"){
+                        alert("The captain stares deeply into the marvelous blue color. 'Alright, no matter. You'll be coming with us though.' His crew immediately takes you onto his ship.");
+                        jail();
+                    }
+                    else if(capeOrigin == "I stole it"){
+                        alert("The captain laughs a hearty laugh. 'Haha! This must have been quite a steal! In fact, you would make a wonderful crewmate if you so wished to join. You would be great at plundering ships.'");
+                        crewjoin();
+                    }
+                    else if(capeOrigin == "I made it"){
+                        alert("The captain laughs for a brief second, coughs hard, then straightens himself.");
+                        alert("'This is quite a marvelous cape!' He exclaims. Why, you would make a wonderful crewmate if you so wished to join. You would be great at creating clothes for me and my crew.'");
+                        crewjoin();
+                    }
+                    else if(capeOrigin == null){
+                        endgame();
+                    }
+                    else{
+                        ("That's not a good choice! Try again.");
+                    }
+                }
+                
+                //Crew join
+                function crewjoin(){
+                    var join = prompt("'What say you? Would you like to board my ship and travel the seas with my crew?' He asks. This is a big decision! What do you say? (yes, no)");
+                    if(join == "yes"){
+                        alert("You choose to go with him! He happily let's you board his ship. From that day forth you would travel the seas far and wide plundering ships and going on adventures with pirates!");
+                        alert("THE END");
+                    }
+                    else if(join == "no"){
+                        alert("The pirate becomes dissapointed. 'That's a real shame! You would have made a fine crewwmate. Nonetheless, you'll be coming on our ship.' His crew immediately takes you onto his ship");
+                        jail();                                                
+                    }
+                    else if(join == null){
+                        endgame();
+                    }
+                    else{
+                        alert("That won't work! Try again.");
+                    }
+                }
+
+                //Jail
+                function jail(){
+                    alert("You wake up to find yourself in a jail cell. It looks like the pirate threw you behind bars on his ship!");
+                    insideJail();
+                }
+                
+                //Inside Jail
+                function insideJail(){
+                    var jailChoice = prompt("It appears you might be here for a while. What do you want to do? (Look around, Pick at the lock, Play the harmonica)");
+                    if(jailChoice == "Look around"){
+                        jailObjects();
+                    }
+                    else if(jailChoice == "Pick at the lock"){
+                        alert("You try picking at the lock to see if it's loose. Nope. It looks like it will need a key or something.");
+                        insideJail();
+                    }
+                    else if(jailChoice == "Play the harmonica"){
+                        alert("You start playing the harmonica to pass the time. Suddenly, someone turns around the corner and looks into your cell. It appears to be an older looking man.");
+                        alert("'You play that harmonica mighty fine.' He says. 'I used to play the clarinet really well before I was caught by this nasty 'ol pirate fellow. I've been stuck here for quite some time but I have no way of leavin'.'");
+                        alert("The old man looks down at you. 'Tell you what... I'll break you out of here if you can make a promise. Will you let me sail away with you?");
+                        oldMan();
+                    }
+                    else if(jailChoice == null){
+                        endgame();
+                    }
+                    else{
+                        alert("That's not an option! Try again.");
+                        insideJail();
+                    }
+                }
+
+                //Jail Objects
+                function jailObjects(){
+                    alert("You decide to look around the room and see what you can find. After about 20 minutes or so, you gather everything you have onto a small bed in the corner. It seems you found...");
+                    var objects = ["broken nail", "coin", "torn piece of paper", "piece of old food"];
+                    var stuff = objects.length;
+                    youFound();
+                    function youFound(){
+                        for (i = 0; i < stuff; i++) {
+                        alert("A " + objects[i] + "...");
+                        }
+                    }
+                    alert("...but none of it appeared to be of any use. Even the broken nail was too large to fit into the key hole. Oh well.");
+                    insideJail();
+                }
+
+                //Old Man
+                function oldMan(){
+                    var breakout = prompt("This could be your chance! Do you promise to take the old man with you if he breaks you out? (yes, no)");
+                    if(breakout == "yes"){
+                        alert("'Wonderful! Alright, give me just a moment' He says. He rattles around his pockets and pulls out a tiny key. He puts it inside the lock and slowly twists it open, giving you freedom.");
+                        alert("'We'll have to be very quiet.' He mentions. 'We don't want none of them pirates seeing us. Your boat should be right outside, so we'll have to drop off the left side.'");
+                        alert("After looking out onto the deck and making sure the crew is distracted with their drinks, the old man motions you to follow. You both quietly move past some barrels and reach the edge of the boat.");
+                        alert("He points you to the rowboat hanging off the side, and both of you slowly get inside and start lowering the boat.");
+                        alert("Soon enough, you both reach your sail boat and you start sailing off before anyone notices. You both break free! I think it's about time to head home!");
+                        alert("THE END");
+                    }
+                    else if(breakout == "no"){
+                        alert("'Ah well...' The old man sighed. 'Good luck anyways.'");
+                        alert("Time went on, and unfortunately, it seemed the pirates forgot about you. In fact, they forgot about you for so long they even forgot to feed you... which means...");
+                        alert("YOU HAVE DIED!");
+                        alert("THE END");
+                    }
+                    else if(breakout == null){
+                        endgame();
+                    }
+                    else{
+                        alert("That's not an option! Try again.");
+                        oldMan();
+                    }
+                }
+
+                //Sail away
+                function away(){
+                    alert("You choose to sail away. However, after sailing for a while, you notice that the ship has been following you!");
+                    chooseObject();
+                }
+                        
+                //Choosing an object
+                function chooseObject(){
+                    var shipObject = prompt("You decide to take action. Which object do you choose to use? (scope, cannon, spear, phone)");
+                    if(shipObject == null){
+                        endgame();
+                    }
+                    else{
+                    switch(shipObject){
+                    case "scope":
+                        alert("You use your telescope to get a closer look. Upon inspection, you see that it's a pirate ship! This can't be good!");
+                        chooseObject();
+                        break;
+                    case "cannon":
+                        alert("You use the cannon! Unfortunately, you have terrible aim and you completely miss the ship. The cannonball smacks a dolphin that was in the middle of performing a front flip. Whoops!");
+                        chooseObject();
+                        break;
+                    case "spear":
+                        alert("You reel back and toss the spear with all your might. Surprisingly, it hits the sail of the ship and rips a large tear through it, rendering it unable to keep sailing. Looks like you stopped them!");
+                        alert("Unfortunately, it doesn't seem your good luck will last for very long. As it so happens, a large group of sharks start circling around your boat. This definitely can't be good...")
+                        sharks();
+                        break;
+                    case "phone":
+                        alert("You use your phone to call your mother. She nags you for leaving the house again without telling her. After apologizing, you ask for her advice. She suggests using the spear! Mothers always know what to do.");
+                        chooseObject();
+                        break;
+                    default:
+                        alert("That option won't work here. Try again!");
+                        chooseObject();          
+                    }
+                    }
+                }
+
+                //Sharks
+                function sharks(){
+                    alert("We better do something! Inside your ship you find...");
+                    insideShip();
+                }
+
+                //Inside Ship
+                function insideShip(){
+                    var objectsBoat = ["flaregun", "metal rod", "half-eaten sandwich"];
+                    var c = 0;
+                    var stuffBoat = objectsBoat.length;
+                    function thisthing(){
+                        while (c < stuffBoat) {
+                        alert("A " + objectsBoat[c] + "...");
+                        c++;
+                        thisthing();
+                        }
+                    }
+                    thisthing();
+                    alert("...actually these things are pointless. You don't have much at your disposal.");
+                    var fog = prompt("Unfortunately you don't have very much time to think because a thick fog is starting to form around you. Do you try sailing away quickly or staying in place until it's done? (Stay, Sail)");
+                    if(fog == "Stay"){
+                        alert("You decide to stay in place. This wasn't a good decision! Soon the sharks start chomping away at your boat until there's almost nothing left! It looks like this isn't your day, because unfortunately...");
+                        alert("YOU HAVE DIED!");
+                        alert("THE END");
+                    }
+                    else if(fog == "Sail"){
+                        alert("You decide to sail on! You start getting away from the sharks as quickly as possible. Although you can't see a thing, you keep moving ahead.");
+                        alert("Good news! You've hit land! And thank goodness for that. Maybe you should try sailing later when there aren't so many creepy boats and deadly sharks around.");
+                        alert("THE END");
+                    }
+                    else if(fog == null){
+                        endgame();
+                    }
+                    else{
+                        alert("That's not an option! Try again.");
+                    }
+                }
+            }
+
+            /* End Game */
+            function endgame(){
+                alert("Ending adventure...");
+            }
+            /* Start Game */
+            alert("Welcome to Nathan's Adventure Game! Let's throw you right into the action, shall we?");
+            var name = prompt("What is your name, brave adventurer?");
+            var lastname = prompt("Good, good. And may I ask what your last name is?");
+            var player = {firstName: name, lastName: lastname};
+            if(player.firstName) {
+                    welcome();
+            }
+
+            /* Welcome */
+            function welcome(){
+            var gameStart = confirm("Welcome " + player.firstName + " " + player.lastName + ". You're about to enter a world full of interesting individuals and unexplainable circumstances, so hold onto your socks and let's get moving. Are you ready to begin?'");
+
+            if(gameStart) {
+                game();
+            }
+            else{
+                endgame();
+            }
+        }
+
+/* Examples
+
+ Switch example
+switch (new Date().getDay()) {
+    case 0:
+        day = "Sunday";
+        break;
+    case 1:
+        day = "Monday";
+        break;
+    case 2:
+        day = "Tuesday";
+        break;
+    case 3:
+        day = "Wednesday";
+        break;
+    case 4:
+        day = "Thursday";
+        break;
+    case 5:
+        day = "Friday";
+        break;
+    case 6:
+        day = "Saturday";
 }
-else {
-  alert("Oh. Alright. :(")
+
+// For loop example
+var cars = ["BMW", "Volvo", "Saab", "Ford"];
+var i = 0;
+var len = cars.length;
+
+for (; i < len; i++) {
+    alert(cars[i]);
 }
+//Alerts each array into different sequential alert boxes
+
+// While loop example
+var objectsBoat = ["flaregun", "metal rod", "half-eaten sandwich"];
+var i = 0;
+var stuffBoat = objectsBoat.length;
+function thisthing(){
+while (i < stuffBoat) {
+alert("A " + objectsBoat[i] + "...");
+i++;
+thisthing();
+}
+}
+thisthing();
+
+// Array example
+var fruits = ["Apple", "Banana"];
+console.log(fruits.length);
+/// 2
+var first = fruits[0];
+/// Apple
+var last = fruits[fruits.length - 1];
+/// Banana */
+
+            </script>
+        </body>
+</html>
+
+
